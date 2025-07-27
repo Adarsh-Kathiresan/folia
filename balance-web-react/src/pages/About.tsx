@@ -1,6 +1,4 @@
-import React from "react";
-
-const About: React.FC = () => (
+const About = () => ( 
   <div style={{ maxWidth: 600, margin: "2rem auto", padding: "1rem" }}>
     <h1>About This App</h1>
     <p>
