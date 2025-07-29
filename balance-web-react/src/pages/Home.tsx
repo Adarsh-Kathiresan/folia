@@ -6,7 +6,7 @@ import { ChevronDownIcon } from "@heroicons/react/20/solid";
 
 const Home = () => {
 
-  const [budgets] = useState<Budget[]>([{
+  const [budgets, setBudgets] = useState<Budget[]>([{
     id: "first-budget",
     name: "First Budget",
     expenses: [],
@@ -39,13 +39,13 @@ const Home = () => {
   //   setBudgets(prev => [...prev, budget]);
   // };
 
-  // const updateBudget = (id: string, updatedBudget: Partial<Budget>) => {
-  //   setBudgets(prev =>
-  //     prev.map(budget =>
-  //       budget.id === id ? { ...budget, ...updatedBudget } : budget
-  //     )
-  //   );
-  // };
+  const updateBudget = (id: string, updatedBudget: Partial<Budget>) => {
+    setBudgets(prev =>
+      prev.map(budget =>
+        budget.id === id ? { ...budget, ...updatedBudget } : budget
+      )
+    );
+  };
 
   const [selectedBudgetIndex, setSelectedBudgetIndex] = useState<number>(0);
 
@@ -82,7 +82,7 @@ const Home = () => {
           </MenuItems>
         </Menu>
       </div>
-      <BudgetPage budget={budgets[selectedBudgetIndex]} />
+      <BudgetPage budget={budgets[selectedBudgetIndex]} updateBudget={(updatedBudget) => updateBudget(budgets[selectedBudgetIndex].id, updatedBudget)} />
     </div>
   );
 };

@@ -5,6 +5,7 @@ import BudgetDetails from '../BudgetDetails';
 
 type BudgetProps = {
     budget: Budget;
+    updateBudget: (updatedBudget: Partial<Budget>) => void;
 };
 
 
@@ -12,7 +13,7 @@ function classNames(...classes: string[]) {
     return classes.filter(Boolean).join(' ');
 }
 
-const BudgetPage = ({ budget }: BudgetProps) => {
+const BudgetPage = ({ budget, updateBudget }: BudgetProps) => {
     return (
         <TabGroup>
             <TabList className="flex space-x-1 bg-blue-900/20 p-1 rounded">
@@ -48,7 +49,7 @@ const BudgetPage = ({ budget }: BudgetProps) => {
                 </TabPanel>
                 <TabPanel>
                     <div>
-                        <BudgetDetails budget={budget} />
+                        <BudgetDetails budget={budget} updateBudget={(updatedBudget) => updateBudget(updatedBudget)}/>
                     </div>
                 </TabPanel>
             </TabPanels>

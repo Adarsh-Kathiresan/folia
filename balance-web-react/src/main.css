@@ -1,1 +1,28 @@
 @import "tailwindcss";
+
+table {
+  border-collapse: collapse;
+  transition: border-color 0.5s ease-in-out; /* Apply transition to border-color */
+}
+
+th:not(:last-child), td:not(:last-child) {
+  border-right: 1px solid #ccc;
+}
+
+th, td {
+  padding: 8px;
+  text-align: left;
+}
+
+th {
+  background-color: #fff; /* Light gray background for header */
+  font-weight: bold;
+}
+
+table tr:nth-child(odd) {
+    background-color: #f2f2f2; /* Light gray for odd rows */
+}
+
+table tr:nth-child(even) {
+    background-color: #ffffff; /* White for even rows */
+}
