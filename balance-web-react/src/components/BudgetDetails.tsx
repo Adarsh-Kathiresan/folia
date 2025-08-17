@@ -3,6 +3,7 @@ import AssetsView from "./AssetsView";
 import ExpensesView from "./ExpensesView";
 import IncomesView from "./IncomesView";
 import LiabilitiesView from "./LiabilitiesView";
+import TransactionsView from "./TransactionsView";
 
 type BudgetDetailsProps = {
     budget: Budget;
@@ -48,6 +49,9 @@ const BudgetDetails = ({ budget, updateBudget }: BudgetDetailsProps) => {
                             updateBudget({ loans: updatedLoans });
                         }}
                     />
+                </div>
+                <div className={editblockClassNames + " col-span-2"}>
+                    <TransactionsView />
                 </div>
             </div>
             

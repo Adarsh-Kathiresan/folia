@@ -42,7 +42,7 @@ const BudgetPage = ({ budget, updateBudget }: BudgetProps) => {
                     Edit
                 </Tab>
             </TabList>
-            <TabPanels className="mt-2">
+            <TabPanels className="m-2">
                 <TabPanel>
                     {/* Replace the following line with a valid NetWorthSummary object */}
                     <BudgetSummary summary={budget.netWorth} />
