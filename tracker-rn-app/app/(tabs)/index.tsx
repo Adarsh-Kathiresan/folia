@@ -5,8 +5,31 @@ import { HelloWave } from '@/components/HelloWave';
 import ParallaxScrollView from '@/components/ParallaxScrollView';
 import { ThemedText } from '@/components/ThemedText';
 import { ThemedView } from '@/components/ThemedView';
+import EventRow from '@/components/tracker/EventRow';
+import { fetchEventsFromApi, TrEvent } from '@/types/TrEvent';
+import { useCallback, useEffect, useState } from 'react';
+import { ActivityIndicator, FlatList } from 'react-native';
 
 export default function HomeScreen() {
+  const [events, setEvents] = useState<Array<TrEvent>>([]);
+        const [loading, setLoading] = useState(false);
+        const [page, setPage] = useState(1);
+
+        const fetchEvents = useCallback(async () => {
+          if (loading) return;
+          setLoading(true);
+          // Replace with your API or data source
+          const newEvents = await fetchEventsFromApi(page);
+          
+          setEvents(prev => [...prev, ...newEvents]);
+          setPage(prev => prev + 1);
+          setLoading(false);
+        }, [loading, page]);
+
+        // Initial load
+        useEffect(() => {
+          fetchEvents();
+        }, []);
   return (
     <ParallaxScrollView
       headerBackgroundColor={{ light: '#A1CEDC', dark: '#1D3D47' }}
@@ -21,7 +44,17 @@ export default function HomeScreen() {
         <HelloWave />
       </ThemedView>
       <ThemedView style={styles.stepContainer}>
-        <ThemedText type="subtitle">Step 1: Try it</ThemedText>
+        
+
+        <FlatList
+          data={events}
+          renderItem={({ item }) => <EventRow event={item} />}
+          keyExtractor={item => item.id.toString()}
+          onEndReached={fetchEvents}
+          onEndReachedThreshold={0.5}
+          ListFooterComponent={loading ? <ActivityIndicator /> : null}
+        />
+        <ThemedText type="subtitle">T</ThemedText>
         <ThemedText>
           Edit <ThemedText type="defaultSemiBold">app/(tabs)/index.tsx</ThemedText> to see changes.
           Press{' '}
@@ -73,3 +106,4 @@ const styles = StyleSheet.create({
     position: 'absolute',
   },
 });
+
