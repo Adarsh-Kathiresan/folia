@@ -1,34 +1,16 @@
-# folia
+# React + Vite
 
-portfolio - create a polished, public developer profile that showcases your work with a clean UI, responsive layout, and scalable architecture.
+This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
-## Details
+Currently, two official plugins are available:
 
-The site will have five primary pages: Hero, About, Projects, Showcase and Contact
+- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
+- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
 
-4. **SHOWCASE** - Functions like a feed: users can either scroll through or select from a list of lazily loaded components, each representing demos or code experiments you've built. This section emphasizes dynamic rendering and modular design to highlight creativity and technical depth.
+## React Compiler
 
-## Tech
+The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
 
-### DEVELOP
+## Expanding the ESLint configuration
 
-React + TypeScript scaffolded via Vite, with React Router v7+. The site will use lazy loading (React.lazy) for feed components, SCSS for structured and themeable styling (with CSS variables), and responsive design throughout.
-
-### DEPLOY
-
-Deployment will be handled through GitHub Pages, and the entire codebase will be pushed to GitHub early in the process for versioning and collaboration.
-
-# PLAN
-
-06 June 12025
-Over 14 days (~2 hrs/day), you'll build a React + TypeScript portfolio using Vite.
-
-Milestones:
-
-- [x] Day 1–2: project setup and GitHub repo;
-- [ ] Day 3–4: Hero and About sections;
-- [ ] Day 5–6: Projects section;
-- [ ] Day 7–8: Contact and UI polish;
-- [ ] Day 9–10: GitHub Pages deployment;
-- [ ] Day 11–12: finalize project links and details;
-- [ ] Day 13–14: share and gather feedback
+If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
